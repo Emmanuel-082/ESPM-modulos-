@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESPM Moniquirá - Administración</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="encabezado">
+    <h1>ESPM Moniquirá</h1>
+    <p>Panel del administrador</p>
+    <nav class="menu">
+      <a href="index.html">Pagar facturas</a>
+      <a href="quejas.html">Quejas y peticiones</a>
+      <a href="admin.html" class="activo">Administración</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <!-- Ingreso con la clave del administrador -->
+    <section class="tarjeta">
+      <h2>Ingreso del administrador</h2>
+      <form id="formClave" class="fila">
+        <label for="inputClave">Clave</label>
+        <input id="inputClave" type="password" placeholder="Clave de administrador" required>
+        <button type="submit">Ingresar</button>
+      </form>
+      <p id="mensajeClave" class="mensaje" role="status">La clave de prueba es admin123.</p>
+    </section>
+
+    <!-- Todo lo siguiente se muestra solo cuando la clave es correcta -->
+    <div id="panelAdmin" hidden>
+      <section class="tarjeta">
+        <h2>1. Resumen general</h2>
+        <div id="resumen" class="resumen"></div>
+      </section>
+
+      <section class="tarjeta">
+        <h2>2. Crear factura</h2>
+        <form id="formFactura" class="formulario">
+          <label for="facCuenta">Número de cuenta</label>
+          <input id="facCuenta" type="text" placeholder="Ejemplo: 1004" required>
+
+          <label for="facTitular">Titular</label>
+          <input id="facTitular" type="text" placeholder="Nombre completo" required>
+
+          <label for="facServicio">Servicio</label>
+          <select id="facServicio">
+            <option>Acueducto</option>
+            <option>Alcantarillado</option>
+            <option>Aseo</option>
+          </select>
+
+          <label for="facPeriodo">Periodo (AAAA-MM)</label>
+          <input id="facPeriodo" type="text" placeholder="2026-10" required>
+
+          <label for="facValor">Valor en pesos</label>
+          <input id="facValor" type="number" min="1" step="1" placeholder="45000" required>
+
+          <label for="facVencimiento">Fecha de vencimiento</label>
+          <input id="facVencimiento" type="date" required>
+
+          <button type="submit">Crear factura</button>
+        </form>
+        <p id="mensajeFactura" class="mensaje" role="status"></p>
+      </section>
+
+      <section class="tarjeta">
+        <h2>3. Quejas recibidas</h2>
+        <div class="fila">
+          <label for="filtroQuejas">Filtrar por estado</label>
+          <select id="filtroQuejas">
+            <option value="">Todas</option>
+            <option value="RADICADA">Radicadas</option>
+            <option value="EN_TRAMITE">En trámite</option>
+            <option value="RESUELTA">Resueltas</option>
+          </select>
+        </div>
+        <p id="mensajeQuejas" class="mensaje" role="status"></p>
+        <div id="listaQuejasAdmin"></div>
+      </section>
+
+      <section class="tarjeta">
+        <h2>4. Facturas del sistema</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Cuenta</th>
+              <th>Titular</th>
+              <th>Servicio</th>
+              <th>Periodo</th>
+              <th>Valor</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="tablaFacturasAdmin"></tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <script src="comun.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

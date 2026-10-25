@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESPM Moniquirá - Pago de facturas</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="encabezado">
+    <h1>ESPM Moniquirá</h1>
+    <p>Pago de facturas de servicios públicos</p>
+    <nav class="menu">
+      <a href="index.html" class="activo">Pagar facturas</a>
+      <a href="quejas.html">Quejas y peticiones</a>
+      <a href="admin.html">Administración</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <!-- Paso 1: consultar las facturas por número de cuenta -->
+    <section class="tarjeta">
+      <h2>1. Consulta tus facturas</h2>
+      <form id="formConsulta" class="fila">
+        <label for="inputCuenta">Número de cuenta</label>
+        <input id="inputCuenta" type="text" placeholder="Ejemplo: 1001" required>
+        <button type="submit">Consultar</button>
+      </form>
+      <p id="mensaje" class="mensaje" role="status"></p>
+    </section>
+
+    <!-- Paso 2: lista de facturas con botón de pago -->
+    <section class="tarjeta" id="seccionFacturas" hidden>
+      <h2>2. Tus facturas</h2>
+      <p id="totalPendiente" class="total"></p>
+      <table>
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Periodo</th>
+            <th>Vence</th>
+            <th>Valor</th>
+            <th>Estado</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody id="tablaFacturas"></tbody>
+      </table>
+    </section>
+
+    <!-- Paso 3: recibo del último pago realizado -->
+    <section class="tarjeta recibo" id="seccionRecibo" hidden>
+      <h2>3. Recibo de pago</h2>
+      <dl id="datosRecibo"></dl>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+/* estilos.css - Apariencia de la pantalla de pago de facturas */
+
+:root {
+  --color-principal: #0b5ea8;
+  --color-fondo: #f2f6fa;
+  --color-texto: #1d2733;
+  --color-exito: #1b7f3b;
+  --color-error: #b3261e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+.encabezado {
+  background: var(--color-principal);
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.encabezado h1 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+}
+
+.encabezado p {
+  margin: 0;
+}
+
+.contenedor {
+  max-width: 820px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.tarjeta {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.tarjeta h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+.fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+input,
+select,
+button {
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #b8c4d0;
+}
+
+button {
+  background: var(--color-principal);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  background: #9aa7b4;
+  cursor: not-allowed;
+}
+
+.mensaje {
+  min-height: 1.2em;
+  margin: 12px 0 0;
+}
+
+.mensaje.error {
+  color: var(--color-error);
+}
+
+.mensaje.exito {
+  color: var(--color-exito);
+}
+
+.total {
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #dde4ec;
+  text-align: left;
+}
+
+.estado-pagada {
+  color: var(--color-exito);
+  font-weight: bold;
+}
+
+.estado-pendiente {
+  color: var(--color-error);
+  font-weight: bold;
+}
+
+.recibo dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 16px;
+  margin: 0;
+}
+
+.recibo dt {
+  font-weight: bold;
+}
+
+.recibo dd {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    border-bottom: 2px solid #dde4ec;
+    padding: 6px 0;
+  }
+
+  td {
+    border: none;
+  }
+}
+
+/* ---- Menú de navegación entre módulos ---- */
+.menu {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.menu a.activo {
+  background: #ffffff;
+  color: var(--color-principal);
+  font-weight: bold;
+}
+
+/* ---- Formularios en columna ---- */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #b8c4d0;
+  resize: vertical;
+}
+
+.formulario button {
+  align-self: flex-start;
+}
+
+/* ---- Tarjetas de quejas ---- */
+.queja {
+  border: 1px solid #dde4ec;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.queja h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.queja p {
+  margin: 4px 0;
+}
+
+.respuesta {
+  background: #eef7f0;
+  border-left: 4px solid var(--color-exito);
+  padding: 8px;
+}
+
+/* ---- Resumen del administrador ---- */
+.resumen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.cifra {
+  background: var(--color-fondo);
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cifra strong {
+  font-size: 1.3rem;
+  color: var(--color-principal);
+}

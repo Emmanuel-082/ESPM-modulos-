@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESPM Moniquirá - Quejas y peticiones</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="encabezado">
+    <h1>ESPM Moniquirá</h1>
+    <p>Quejas, peticiones y reclamos</p>
+    <nav class="menu">
+      <a href="index.html">Pagar facturas</a>
+      <a href="quejas.html" class="activo">Quejas y peticiones</a>
+      <a href="admin.html">Administración</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <!-- Formulario para radicar una queja nueva -->
+    <section class="tarjeta">
+      <h2>1. Radica tu solicitud</h2>
+      <form id="formQueja" class="formulario">
+        <label for="cuentaQueja">Número de cuenta</label>
+        <input id="cuentaQueja" type="text" placeholder="Ejemplo: 1001" required>
+
+        <label for="tipoQueja">Tipo de solicitud</label>
+        <select id="tipoQueja">
+          <option value="QUEJA">Queja</option>
+          <option value="PETICION">Petición</option>
+          <option value="RECLAMO">Reclamo</option>
+        </select>
+
+        <label for="asuntoQueja">Asunto</label>
+        <input id="asuntoQueja" type="text" maxlength="100" placeholder="Resumen corto de tu solicitud" required>
+
+        <label for="descripcionQueja">Descripción</label>
+        <textarea id="descripcionQueja" rows="4" maxlength="1000" placeholder="Cuéntanos qué ocurrió" required></textarea>
+
+        <button type="submit">Radicar</button>
+      </form>
+      <p id="mensajeQueja" class="mensaje" role="status"></p>
+    </section>
+
+    <!-- Consulta del estado de las quejas -->
+    <section class="tarjeta">
+      <h2>2. Consulta el estado de tus solicitudes</h2>
+      <form id="formConsultaQuejas" class="fila">
+        <label for="cuentaConsulta">Número de cuenta</label>
+        <input id="cuentaConsulta" type="text" placeholder="Ejemplo: 1001" required>
+        <button type="submit">Consultar</button>
+      </form>
+      <p id="mensajeConsulta" class="mensaje" role="status"></p>
+      <div id="listaQuejas"></div>
+    </section>
+  </main>
+
+  <script src="comun.js"></script>
+  <script src="quejas.js"></script>
+</body>
+</html>
