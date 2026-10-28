@@ -165,5 +165,6 @@ module.exports = {
   radicarQueja,
   consultarQuejas,
   consultarQuejaPorRadicado,
-  formatearQueja
+  formatearQueja,
+  generarRadicado
 };

@@ -16,13 +16,18 @@ const Database = require('better-sqlite3');
 const CARPETA_DATOS = path.join(__dirname, '..', 'data');
 const RUTA_BASE_DATOS = path.join(CARPETA_DATOS, 'espm.db');
 
-// Si la carpeta "data" no existe, la creamos
-if (!fs.existsSync(CARPETA_DATOS)) {
+// Durante las pruebas unitarias (NODE_ENV=test, que Jest activa solo) usamos
+// una base de datos temporal en memoria. Así las pruebas no tocan el archivo
+// real data/espm.db y cada ejecución empieza con datos limpios.
+const ES_PRUEBA = process.env.NODE_ENV === 'test';
+
+// Si la carpeta "data" no existe, la creamos (no hace falta en las pruebas)
+if (!ES_PRUEBA && !fs.existsSync(CARPETA_DATOS)) {
   fs.mkdirSync(CARPETA_DATOS, { recursive: true });
 }
 
 // Abrimos (o creamos) la base de datos
-const db = new Database(RUTA_BASE_DATOS);
+const db = new Database(ES_PRUEBA ? ':memory:' : RUTA_BASE_DATOS);
 
 // Activamos las llaves foráneas para que SQLite verifique las relaciones
 db.pragma('foreign_keys = ON');

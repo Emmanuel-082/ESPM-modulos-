@@ -47,6 +47,13 @@ app.use((error, req, res, next) => {
   });
 });
 
-app.listen(PUERTO, () => {
-  console.log(`Módulo de pagos ESPM en http://localhost:${PUERTO}`);
-});
+// El servidor solo se enciende cuando ejecutamos "npm start".
+// Si otro archivo importa este (por ejemplo las pruebas unitarias),
+// no se enciende: solo se entrega la aplicación para probarla.
+if (require.main === module) {
+  app.listen(PUERTO, () => {
+    console.log(`Módulo de pagos ESPM en http://localhost:${PUERTO}`);
+  });
+}
+
+module.exports = app;

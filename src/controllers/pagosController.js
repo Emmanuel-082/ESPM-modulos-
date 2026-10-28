@@ -246,5 +246,6 @@ module.exports = {
   pagarFactura,
   consultarRecibo,
   listarPagos,
-  formatearFactura
+  formatearFactura,
+  generarReferencia
 };

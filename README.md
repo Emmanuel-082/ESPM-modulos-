@@ -1,6 +1,6 @@
 # Software web ESPM Moniquirá - Módulos de pagos, quejas y administración
 
-Evidencia GA7-220501096-AA3-EV01. Codificación de módulos del software web.
+Evidencias GA7-220501096-AA3-EV01 (codificación de módulos del software web) y GA8-220501096-AA1-EV01 (desarrollo del software a partir de la integración de sus módulos, con pruebas unitarias).
 
 ## Qué hace el software
 
@@ -39,6 +39,12 @@ espm-pagos/
   public/admin.html, admin.js          Pantalla del módulo 3
   public/comun.js                      Funciones compartidas
   public/estilos.css                   Apariencia
+  tests/helpers.js                     Herramientas compartidas por las pruebas
+  tests/pagos.test.js                  Pruebas del módulo 1
+  tests/quejas.test.js                 Pruebas del módulo 2
+  tests/admin.test.js                  Pruebas del módulo 3
+  tests/verificarAdmin.test.js         Pruebas de la seguridad (clave de administrador)
+  tests/integracion.test.js            Pruebas de los módulos trabajando juntos
 ```
 
 ## Cómo ejecutarlo paso a paso
@@ -113,6 +119,18 @@ Cada fallo responde con un código HTTP (400, 401, 404 o 409) y un mensaje claro
 - Uso de `const` y `let`, nunca `var`.
 - Un comentario de bloque al inicio de cada archivo y de cada función explicando qué hace, qué recibe y qué devuelve.
 - Código organizado por capas: rutas, controlador y base de datos, con un archivo por módulo en cada capa.
+
+## Pruebas unitarias
+
+Las pruebas usan el ejecutor que ya trae Node.js (`node:test`), por lo que no hay que instalar nada más. Prueban cada función de los tres módulos y la clave del administrador, llamándolas directamente con peticiones de ejemplo. Usan una base de datos temporal en memoria, así que no tocan los datos reales de la carpeta `data`.
+
+Para ejecutarlas, abra una terminal dentro de la carpeta del proyecto y escriba:
+
+```
+npm.cmd test
+```
+
+(En una terminal que no bloquee los scripts basta con `npm test`.) Al final aparece un resumen con la cantidad de pruebas que pasaron y las que fallaron.
 
 ## Versionamiento con Git
 

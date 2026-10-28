@@ -233,5 +233,6 @@ module.exports = {
   listarFacturas,
   listarQuejas,
   responderQueja,
-  obtenerResumen
+  obtenerResumen,
+  esFechaValida
 };
