@@ -39,6 +39,9 @@ espm-pagos/
   public/admin.html, admin.js          Pantalla del módulo 3
   public/comun.js                      Funciones compartidas
   public/estilos.css                   Apariencia
+  iniciar.bat                          Enciende el software con doble clic (Windows)
+  ejecutar-pruebas.bat                 Ejecuta las pruebas con doble clic (Windows)
+  docs/                                Documentos técnicos y actas de la entrega
   tests/helpers.js                     Herramientas compartidas por las pruebas
   tests/pagos.test.js                  Pruebas del módulo 1
   tests/quejas.test.js                 Pruebas del módulo 2
@@ -57,6 +60,8 @@ Necesita tener instalado Node.js (versión 18 o superior). Para comprobarlo, abr
 4. Cuando la terminal diga "Módulo de pagos ESPM en http://localhost:3000", abra esa dirección en el navegador.
 
 En Windows PowerShell, si aparece el error de que la ejecución de scripts está deshabilitada, use `npm.cmd install` y `npm.cmd start`.
+
+Otra forma en Windows es hacer doble clic en `iniciar.bat`: instala las librerías si faltan, enciende el servidor y abre el navegador. Con `ejecutar-pruebas.bat` se ejecutan las pruebas unitarias de la misma manera.
 
 Las cuentas de ejemplo son 1001, 1002 y 1003. La clave de prueba del administrador es `admin123`; se puede cambiar con la variable de entorno `CLAVE_ADMIN`. Para volver a empezar con datos nuevos, detenga el servidor (Ctrl + C), borre la carpeta `data` y ejecute `npm start` otra vez.
 
